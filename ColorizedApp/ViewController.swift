@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
         paletteColorView.layer.cornerRadius = 15
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
@@ -27,6 +28,18 @@ class ViewController: UIViewController {
         
     }
 
-
+    @IBAction func redSliderAction() {
+        redLabel.text = String(round(redSlider.value * 100) / 100)
+        paletteColorView.backgroundColor = .init(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
+    
+    @IBAction func greenSliderAction() {
+        greenLabel.text = String(round(greenSlider.value * 100) / 100)
+        paletteColorView.backgroundColor = .init(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
+    
+    @IBAction func blueSliderAction() {
+        blueLabel.text = String(round(blueSlider.value * 100) / 100)
+        paletteColorView.backgroundColor = .init(displayP3Red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    }
 }
-

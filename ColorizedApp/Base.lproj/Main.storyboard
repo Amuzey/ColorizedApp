@@ -34,6 +34,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-k4-Uj5">
                                 <rect key="frame" x="120" y="271" width="294" height="31"/>
+                                <connections>
+                                    <action selector="redSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="RD8-qe-V8A"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwT-rR-kmu">
                                 <rect key="frame" x="16" y="313" width="47" height="21"/>
@@ -49,6 +52,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="87G-1o-mMv">
                                 <rect key="frame" x="120" y="309" width="294" height="31"/>
+                                <connections>
+                                    <action selector="greenSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="iAp-A5-Plc"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5D0-tb-sVi">
                                 <rect key="frame" x="16" y="351" width="34" height="21"/>
@@ -58,6 +64,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-qX-BIH">
                                 <rect key="frame" x="120" y="347" width="294" height="31"/>
+                                <connections>
+                                    <action selector="blueSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="1fQ-oL-kdX"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utq-MY-ujK">
                                 <rect key="frame" x="77" y="351" width="31.666666666666671" height="21"/>
@@ -67,7 +76,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.090377815067768097" green="0.2511330246925354" blue="0.69272887706756592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.15696785969723484" green="0.29731434692051795" blue="0.80347431428504712" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="w7c-k4-Uj5" firstAttribute="top" secondItem="r3j-Kn-Gf1" secondAttribute="bottom" constant="53" id="0Vm-ya-ksT"/>
                             <constraint firstItem="r3j-Kn-Gf1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.359827" id="5B2-lh-zPr"/>
