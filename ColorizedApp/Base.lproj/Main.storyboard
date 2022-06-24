@@ -96,6 +96,15 @@
                             <constraint firstItem="aB1-qX-BIH" firstAttribute="top" secondItem="87G-1o-mMv" secondAttribute="bottom" constant="8" symbolic="YES" id="tPC-3I-eqC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueLabel" destination="utq-MY-ujK" id="ZlU-v9-p8q"/>
+                        <outlet property="blueSlider" destination="aB1-qX-BIH" id="JVs-w0-e2I"/>
+                        <outlet property="greenLabel" destination="VSz-DY-sNR" id="0Kn-fb-zSC"/>
+                        <outlet property="greenSlider" destination="87G-1o-mMv" id="IVs-Q1-ct6"/>
+                        <outlet property="paletteColorView" destination="r3j-Kn-Gf1" id="AMh-2e-BLh"/>
+                        <outlet property="redLabel" destination="9I5-6K-lDZ" id="q1B-tT-8w5"/>
+                        <outlet property="redSlider" destination="w7c-k4-Uj5" id="542-5j-P6V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
