@@ -47,8 +47,8 @@ class ViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupColorView() {
-        paletteColorView.backgroundColor = .init(
-            displayP3Red: CGFloat(redSlider.value),
+        paletteColorView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
             alpha: 1
