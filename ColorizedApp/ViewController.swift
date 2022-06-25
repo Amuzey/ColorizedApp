@@ -11,9 +11,11 @@ class ViewController: UIViewController {
     
     // MARK: - IB Oulets
     @IBOutlet weak var paletteColorView: UIView!
+   
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
+   
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
@@ -29,18 +31,18 @@ class ViewController: UIViewController {
     
     // MARK: - IB Actions
     @IBAction func redSliderAction() {
-        redLabel.text = String(round(redSlider.value * 100) / 100)
-       setupColorView()
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        setupColorView()
     }
     
     @IBAction func greenSliderAction() {
-        greenLabel.text = String(round(greenSlider.value * 100) / 100)
-       setupColorView()
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        setupColorView()
     }
     
     @IBAction func blueSliderAction() {
-        blueLabel.text = String(round(blueSlider.value * 100) / 100)
-      setupColorView()
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
+        setupColorView()
     }
     
     // MARK: - Private Methods
