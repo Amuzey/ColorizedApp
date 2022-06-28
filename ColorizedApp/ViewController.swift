@@ -11,11 +11,11 @@ class ViewController: UIViewController {
     
     // MARK: - IB Oulets
     @IBOutlet weak var paletteColorView: UIView!
-   
+    
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
-   
+    
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
@@ -29,21 +29,12 @@ class ViewController: UIViewController {
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         setupColorView()
+        setupLabel()
     }
     
     // MARK: - IB Actions
-    @IBAction func redSliderAction() {
-        redLabel.text = String(format: "%.2f", redSlider.value)
-        setupColorView()
-    }
-    
-    @IBAction func greenSliderAction() {
-        greenLabel.text = String(format: "%.2f", greenSlider.value)
-        setupColorView()
-    }
-    
-    @IBAction func blueSliderAction() {
-        blueLabel.text = String(format: "%.2f", blueSlider.value)
+    @IBAction func sliderAction() {
+        setupLabel()
         setupColorView()
     }
     
@@ -56,4 +47,11 @@ class ViewController: UIViewController {
             alpha: 1
         )
     }
+    
+    private func setupLabel() {
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
+    }
 }
+
