@@ -7,15 +7,21 @@
 
 import UIKit
 
-class HomeViewController: UINavigationController {
+class HomeViewController: UIViewController {
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      
+        guard let setingsVC = segue.destination as? SettingsColorViewController else {
+            return
+        }
+        setingsVC.homeBackgroundColor = view.backgroundColor
+        
         }
     }
 

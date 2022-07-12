@@ -35,7 +35,9 @@ class SettingsColorViewController: UIViewController {
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
         
-        setupColorView()
+        paletteColorView.backgroundColor = homeBackgroundColor
+        
+//        setupColorView()
         setupLabel(for: redLabel, greenLabel, blueLabel)
         setupTextField(for: redTextField, greenTextField, blueTextField)
     }
