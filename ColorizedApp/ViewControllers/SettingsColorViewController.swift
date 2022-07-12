@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsColorViewController: UIViewController {
     
     // MARK: - IB Oulets
     @IBOutlet weak var paletteColorView: UIView!
@@ -30,15 +30,24 @@ class ViewController: UIViewController {
         blueSlider.minimumTrackTintColor = .blue
         
         setupColorView()
-        setupLabel()
+        setupLabel(for: redLabel, greenLabel, blueLabel)
     }
     
     // MARK: - IB Actions
-    @IBAction func sliderAction() {
-        setupLabel()
+    @IBAction func sliderAction(_ sender: UISlider) {
+        switch sender {
+        case redSlider:
+            redLabel.text = string(from: redSlider)
+        case greenSlider:
+            greenLabel.text = string(from: greenSlider)
+        default:
+            blueLabel.text = string(from: blueSlider)
+        }
         setupColorView()
     }
     
+   
+   
     // MARK: - Private Methods
     private func setupColorView() {
         paletteColorView.backgroundColor = UIColor(
@@ -49,10 +58,22 @@ class ViewController: UIViewController {
         )
     }
     
-    private func setupLabel() {
-        redLabel.text = String(format: "%.2f", redSlider.value)
-        greenLabel.text = String(format: "%.2f", greenSlider.value)
-        blueLabel.text = String(format: "%.2f", blueSlider.value)
+    private func setupLabel(for labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redLabel:
+                redLabel.text = string(from: redSlider)
+            case greenLabel:
+                greenLabel.text = string(from: greenSlider)
+            default:
+                blueLabel.text = string(from: blueSlider)
+            }
+        }
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
 }
+
 
