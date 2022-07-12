@@ -37,7 +37,7 @@ class SettingsColorViewController: UIViewController {
         
         paletteColorView.backgroundColor = homeBackgroundColor
         
-//        setupColorView()
+        setupValue(sliders: redSlider, greenSlider, blueSlider)
         setupLabel(for: redLabel, greenLabel, blueLabel)
         setupTextField(for: redTextField, greenTextField, blueTextField)
     }
@@ -49,8 +49,8 @@ class SettingsColorViewController: UIViewController {
         setupColorView()
     }
     
-   
-   
+    
+    
     // MARK: - Private Methods
     private func setupColorView() {
         paletteColorView.backgroundColor = UIColor(
@@ -89,6 +89,19 @@ class SettingsColorViewController: UIViewController {
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
+    
+    private func setupValue(sliders: UISlider...) {
+        sliders.forEach { slider in
+            switch slider {
+            case redSlider:
+                redSlider.value = Float(homeBackgroundColor.rgba.red)
+            case greenSlider:
+                greenSlider.value = Float(homeBackgroundColor.rgba.green)
+            default:
+                blueSlider.value = Float(homeBackgroundColor.rgba.blue)
+                
+            }
+        }
+    }
 }
-
 
