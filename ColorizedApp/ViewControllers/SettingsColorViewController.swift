@@ -20,6 +20,10 @@ class SettingsColorViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var redTextField: UITextField!
+    @IBOutlet weak var greenTextField: UITextField!
+    @IBOutlet weak var blueTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,18 +35,13 @@ class SettingsColorViewController: UIViewController {
         
         setupColorView()
         setupLabel(for: redLabel, greenLabel, blueLabel)
+        setupTextField(for: redTextField, greenTextField, blueTextField)
     }
     
     // MARK: - IB Actions
     @IBAction func sliderAction(_ sender: UISlider) {
-        switch sender {
-        case redSlider:
-            redLabel.text = string(from: redSlider)
-        case greenSlider:
-            greenLabel.text = string(from: greenSlider)
-        default:
-            blueLabel.text = string(from: blueSlider)
-        }
+        setupLabel(for: redLabel, greenLabel, blueLabel)
+        setupTextField(for: redTextField, greenTextField, blueTextField)
         setupColorView()
     }
     
@@ -67,6 +66,18 @@ class SettingsColorViewController: UIViewController {
                 greenLabel.text = string(from: greenSlider)
             default:
                 blueLabel.text = string(from: blueSlider)
+            }
+        }
+    }
+    private func setupTextField(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField {
+            case redTextField:
+                redTextField.text = string(from: redSlider)
+            case greenTextField:
+                greenTextField.text = string(from: greenSlider)
+            default:
+                blueTextField.text = string(from: blueSlider)
             }
         }
     }
