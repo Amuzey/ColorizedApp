@@ -29,14 +29,9 @@ class SettingsColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        paletteColorView.layer.cornerRadius = 15
-        
-        redSlider.minimumTrackTintColor = .red
-        greenSlider.minimumTrackTintColor = .green
-        blueSlider.minimumTrackTintColor = .blue
-        
         paletteColorView.backgroundColor = homeBackgroundColor
         
+        setupUI()
         setupValue(sliders: redSlider, greenSlider, blueSlider)
         setupLabel(for: redLabel, greenLabel, blueLabel)
         setupTextField(for: redTextField, greenTextField, blueTextField)
@@ -86,6 +81,16 @@ class SettingsColorViewController: UIViewController {
         }
     }
     
+    private func setupUI() {
+        
+        paletteColorView.layer.cornerRadius = 15
+        
+        redSlider.minimumTrackTintColor = .red
+        greenSlider.minimumTrackTintColor = .green
+        blueSlider.minimumTrackTintColor = .blue
+        
+    }
+    
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
@@ -99,7 +104,6 @@ class SettingsColorViewController: UIViewController {
                 greenSlider.value = Float(homeBackgroundColor.rgba.green)
             default:
                 blueSlider.value = Float(homeBackgroundColor.rgba.blue)
-                
             }
         }
     }
