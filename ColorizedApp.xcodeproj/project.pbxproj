@@ -56,15 +56,47 @@
 		8A2A56A728659E4900E20477 /* ColorizedApp */ = {
 			isa = PBXGroup;
 			children = (
-				8A2A56A828659E4900E20477 /* AppDelegate.swift */,
-				8A2A56AA28659E4900E20477 /* SceneDelegate.swift */,
-				8A2A56AC28659E4900E20477 /* ViewController.swift */,
-				8A2A56AE28659E4900E20477 /* Main.storyboard */,
-				8A2A56B128659E4A00E20477 /* Assets.xcassets */,
-				8A2A56B328659E4A00E20477 /* LaunchScreen.storyboard */,
-				8A2A56B628659E4A00E20477 /* Info.plist */,
+				8A85F9B0287D4D59003B5167 /* ViewControllers */,
+				8A85F9AF287D4CD8003B5167 /* Storyboards */,
+				8A85F9B1287D4D76003B5167 /* Resources */,
+				8A85F9AE287D4CAB003B5167 /* App */,
 			);
 			path = ColorizedApp;
+			sourceTree = "<group>";
+		};
+		8A85F9AE287D4CAB003B5167 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8A2A56A828659E4900E20477 /* AppDelegate.swift */,
+				8A2A56AA28659E4900E20477 /* SceneDelegate.swift */,
+				8A2A56B628659E4A00E20477 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A85F9AF287D4CD8003B5167 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8A2A56AE28659E4900E20477 /* Main.storyboard */,
+				8A2A56B328659E4A00E20477 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8A85F9B0287D4D59003B5167 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A2A56AC28659E4900E20477 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8A85F9B1287D4D76003B5167 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A2A56B128659E4A00E20477 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +321,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5Z3HCFMYW5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ColorizedApp/Info.plist;
+				INFOPLIST_FILE = ColorizedApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -318,7 +350,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5Z3HCFMYW5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ColorizedApp/Info.plist;
+				INFOPLIST_FILE = ColorizedApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
