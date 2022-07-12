@@ -29,12 +29,17 @@ class SettingsColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        paletteColorView.backgroundColor = homeBackgroundColor
         
         setupUI()
         setupValue(sliders: redSlider, greenSlider, blueSlider)
         setupLabel(for: redLabel, greenLabel, blueLabel)
         setupTextField(for: redTextField, greenTextField, blueTextField)
+        
+        redTextField.delegate = self
+        greenTextField.delegate = self
+        blueTextField.delegate = self
+        
+        
     }
     
     // MARK: - IB Actions
@@ -68,6 +73,7 @@ class SettingsColorViewController: UIViewController {
             }
         }
     }
+    
     private func setupTextField(for textFields: UITextField...) {
         textFields.forEach { textField in
             switch textField {
@@ -82,13 +88,11 @@ class SettingsColorViewController: UIViewController {
     }
     
     private func setupUI() {
-        
+        paletteColorView.backgroundColor = homeBackgroundColor
         paletteColorView.layer.cornerRadius = 15
-        
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
-        
     }
     
     private func string(from slider: UISlider) -> String {
@@ -108,4 +112,19 @@ class SettingsColorViewController: UIViewController {
         }
     }
 }
+extension SettingsColorViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == redTextField {
+            redSlider.value = Float(textField.text!) ?? 0
+        } else if textField == greenTextField {
+            greenSlider.value = Float(textField.text!) ?? 0
+        } else if textField == blueTextField {
+            blueSlider.value = Float(textField.text!) ?? 0
+        }
+        
+            
+        
+    }
+}
+
 
