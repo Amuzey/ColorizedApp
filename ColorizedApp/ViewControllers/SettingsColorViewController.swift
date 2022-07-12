@@ -24,6 +24,8 @@ class SettingsColorViewController: UIViewController {
     @IBOutlet weak var greenTextField: UITextField!
     @IBOutlet weak var blueTextField: UITextField!
     
+    var homeBackgroundColor: UIColor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

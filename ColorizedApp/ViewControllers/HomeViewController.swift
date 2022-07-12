@@ -15,7 +15,7 @@ class HomeViewController: UINavigationController {
         super.viewDidLoad()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let settingsVC = segue.destination.navigationController?.topViewController
       
+        }
     }
-}
+
