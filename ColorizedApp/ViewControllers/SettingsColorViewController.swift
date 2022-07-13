@@ -29,7 +29,7 @@ class SettingsColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupToolBar()
         setupUI()
         setupValue(sliders: redSlider, greenSlider, blueSlider)
         setupLabel(for: redLabel, greenLabel, blueLabel)
@@ -116,6 +116,13 @@ class SettingsColorViewController: UIViewController {
                 blueSlider.value = Float(homeBackgroundColor.rgba.blue)
             }
         }
+    }
+    private func setupToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneBarBottun = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonPresed))
+        toolBar.setItems([doneBarBottun], animated: true)
+        redTextField.inputAccessoryView = toolBar
     }
 }
 
