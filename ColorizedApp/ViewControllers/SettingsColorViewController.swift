@@ -118,7 +118,7 @@ class SettingsColorViewController: UIViewController {
             }
         }
     }
-    @objc private func closeKeyboard () {
+    @objc private func doneBarButtonPresed () {
         view.endEditing(true)
     }
     
@@ -127,7 +127,7 @@ class SettingsColorViewController: UIViewController {
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneBarBottun = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closeKeyboard))
+        let doneBarBottun = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBarButtonPresed))
         toolBar.setItems([doneBarBottun], animated: true)
     
         redTextField.inputAccessoryView = toolBar
