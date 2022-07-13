@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SettingsColorViewControllerDelegate {
+    func setNewBackground(color: UIColor)
+}
+
 class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -19,10 +23,10 @@ class HomeViewController: UIViewController {
             return
         }
         setingsVC.homeBackgroundColor = view.backgroundColor
-        
-        }
-    
+        setingsVC.delegate = self
     }
+    
+}
 //MARK: - RGBA Unpacking
 extension UIColor {
     var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
@@ -37,3 +41,9 @@ extension UIColor {
     }
 }
 
+//MARK: - SettingsColorViewControllerDelegate
+extension HomeViewController: SettingsColorViewControllerDelegate {
+    func setNewBackground(color: UIColor) {
+        view.backgroundColor = color
+    }
+}

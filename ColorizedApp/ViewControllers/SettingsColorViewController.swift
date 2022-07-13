@@ -10,7 +10,7 @@ import UIKit
 class SettingsColorViewController: UIViewController {
     
     // MARK: - IB Oulets
-    @IBOutlet weak var paletteColorView: UIView!
+    @IBOutlet weak var paletteView: UIView!
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
@@ -25,6 +25,7 @@ class SettingsColorViewController: UIViewController {
     @IBOutlet weak var blueTextField: UITextField!
     
     var homeBackgroundColor: UIColor!
+    var delegate: SettingsColorViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +50,15 @@ class SettingsColorViewController: UIViewController {
         setupColorView()
     }
     
+    @IBAction func doneButtonPresed() {
+        delegate.setNewBackground(color: paletteView.backgroundColor ?? .blue)
+        dismiss(animated: true)
+    }
     
     
     // MARK: - Private Methods
     private func setupColorView() {
-        paletteColorView.backgroundColor = UIColor(
+        paletteView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
@@ -88,8 +93,8 @@ class SettingsColorViewController: UIViewController {
     }
     
     private func setupUI() {
-        paletteColorView.backgroundColor = homeBackgroundColor
-        paletteColorView.layer.cornerRadius = 15
+        paletteView.backgroundColor = homeBackgroundColor
+        paletteView.layer.cornerRadius = 15
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
