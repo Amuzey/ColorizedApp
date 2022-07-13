@@ -53,9 +53,10 @@ class SettingsColorViewController: UIViewController {
     }
     
     @IBAction func doneButtonPresed() {
-        view.endEditing(true)
-        delegate.setNewBackground(color: paletteView.backgroundColor ?? .blue)
+        guard let color = paletteView.backgroundColor else { return }
+        delegate.setNewBackground(color: color)
         dismiss(animated: true)
+        view.endEditing(true)
     }
     
     // MARK: - Private Methods
@@ -143,10 +144,13 @@ extension SettingsColorViewController: UITextFieldDelegate {
         guard let floatValue = Float(newValue) else { return }
         if textField == redTextField {
             redSlider.value = floatValue
+            redLabel.text = String(floatValue)
         } else if textField == greenTextField {
             greenSlider.value = floatValue
+            greenLabel.text = String(floatValue)
         } else if textField == blueTextField {
             blueSlider.value = floatValue
+            blueLabel.text = String(floatValue)
         }
         setupColorView()
     }
