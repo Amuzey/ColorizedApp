@@ -40,6 +40,10 @@ class SettingsColorViewController: UIViewController {
         blueTextField.delegate = self
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     // MARK: - IB Actions
     @IBAction func sliderAction(_ sender: UISlider) {
         setupLabel(for: redLabel, greenLabel, blueLabel)
@@ -48,6 +52,7 @@ class SettingsColorViewController: UIViewController {
     }
     
     @IBAction func doneButtonPresed() {
+        view.endEditing(true)
         delegate.setNewBackground(color: paletteView.backgroundColor ?? .blue)
         dismiss(animated: true)
     }
@@ -126,5 +131,6 @@ extension SettingsColorViewController: UITextFieldDelegate {
         } else if textField == blueTextField {
             blueSlider.value = floatValue
         }
+        setupColorView()
     }
 }
