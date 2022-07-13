@@ -30,7 +30,6 @@ class SettingsColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setupUI()
         setupValue(sliders: redSlider, greenSlider, blueSlider)
         setupLabel(for: redLabel, greenLabel, blueLabel)
@@ -39,8 +38,6 @@ class SettingsColorViewController: UIViewController {
         redTextField.delegate = self
         greenTextField.delegate = self
         blueTextField.delegate = self
-        
-        
     }
     
     // MARK: - IB Actions
@@ -54,7 +51,6 @@ class SettingsColorViewController: UIViewController {
         delegate.setNewBackground(color: paletteView.backgroundColor ?? .blue)
         dismiss(animated: true)
     }
-    
     
     // MARK: - Private Methods
     private func setupColorView() {
@@ -117,19 +113,18 @@ class SettingsColorViewController: UIViewController {
         }
     }
 }
+
+//MARK: - SettingsColorViewController
 extension SettingsColorViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        guard let floatValue = Float(newValue) else { return }
         if textField == redTextField {
-            redSlider.value = Float(textField.text!) ?? 0
+            redSlider.value = floatValue
         } else if textField == greenTextField {
-            greenSlider.value = Float(textField.text!) ?? 0
+            greenSlider.value = floatValue
         } else if textField == blueTextField {
-            blueSlider.value = Float(textField.text!) ?? 0
+            blueSlider.value = floatValue
         }
-        
-            
-        
     }
 }
-
-
