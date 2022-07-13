@@ -29,6 +29,7 @@ class SettingsColorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupToolBar()
         setupUI()
         setupValue(sliders: redSlider, greenSlider, blueSlider)
@@ -117,12 +118,21 @@ class SettingsColorViewController: UIViewController {
             }
         }
     }
+    @objc private func closeKeyboard () {
+        view.endEditing(true)
+    }
+    
+    
     private func setupToolBar() {
+        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneBarBottun = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonPresed))
+        let doneBarBottun = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(closeKeyboard))
         toolBar.setItems([doneBarBottun], animated: true)
+    
         redTextField.inputAccessoryView = toolBar
+        greenTextField.inputAccessoryView = toolBar
+        blueTextField.inputAccessoryView = toolBar
     }
 }
 
