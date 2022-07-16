@@ -24,8 +24,9 @@ class SettingsColorViewController: UIViewController {
     @IBOutlet weak var greenTextField: UITextField!
     @IBOutlet weak var blueTextField: UITextField!
     
-    var homeBackgroundColor: UIColor!
+//    MARK: - Public Properties
     var delegate: SettingsColorViewControllerDelegate!
+    var homeBackgroundColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class SettingsColorViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
     
@@ -56,7 +58,6 @@ class SettingsColorViewController: UIViewController {
         guard let color = paletteView.backgroundColor else { return }
         delegate.setNewBackground(color: color)
         dismiss(animated: true)
-        view.endEditing(true)
     }
     
     // MARK: - Private Methods
@@ -108,14 +109,15 @@ class SettingsColorViewController: UIViewController {
     }
     
     private func setupValue(sliders: UISlider...) {
+        let ciColor = CIColor(color: homeBackgroundColor)
         sliders.forEach { slider in
             switch slider {
             case redSlider:
-                redSlider.value = Float(homeBackgroundColor.rgba.red)
+                redSlider.value = Float(ciColor.red)
             case greenSlider:
-                greenSlider.value = Float(homeBackgroundColor.rgba.green)
+                greenSlider.value = Float(ciColor.green)
             default:
-                blueSlider.value = Float(homeBackgroundColor.rgba.blue)
+                blueSlider.value = Float(ciColor.blue)
             }
         }
     }
@@ -128,7 +130,12 @@ class SettingsColorViewController: UIViewController {
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneBarBottun = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBarButtonPresed))
+        let doneBarBottun = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(doneBarButtonPresed)
+        )
         toolBar.setItems([doneBarBottun], animated: true)
     
         redTextField.inputAccessoryView = toolBar
